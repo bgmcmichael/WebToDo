@@ -22,7 +22,7 @@ Welcome, {{name}}!
 
 <ol>
     {{#todos}}
-    <li>{{text}}</li><a href="/delete?todoID={{id}}">delete</a>
+    <li>{{text}} {{isDone}}</li><a href="/delete?todoID={{id}}">Delete</a>&nbsp;<a href="/toggle-todo?todoID={{id}}">Toggle</a>
     {{/todos}}
 </ol>
 {{/user}}

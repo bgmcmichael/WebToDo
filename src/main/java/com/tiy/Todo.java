@@ -15,6 +15,9 @@ public class Todo {
     @Column(nullable = false)
     String text;
 
+    @Column(nullable = false)
+    boolean isDone = false;
+
     @ManyToOne
     User user;
 
@@ -24,6 +27,14 @@ public class Todo {
     public Todo(String text, User user) {
         this.text = text;
         this.user = user;
+    }
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
     }
 
     public int getId() {

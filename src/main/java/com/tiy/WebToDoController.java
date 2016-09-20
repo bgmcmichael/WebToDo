@@ -76,6 +76,16 @@ public class WebToDoController {
         return "redirect:/";
     }
 
+    @RequestMapping(path = "/toggle-todo", method = RequestMethod.GET)
+    public String toggleTodo(HttpSession session,  Integer todoID) {
+        Todo todo = todos.findOne(todoID);
+        System.out.println(todo.isDone);
+        todo.isDone = !todo.isDone;
+        todos.save(todo);
+        System.out.println(todo.isDone);
+        return "redirect:/";
+    }
+
     @RequestMapping(path = "/delete", method = RequestMethod.GET)
     public String deleteGame(Model model, Integer todoID) {
         if (todoID != null) {
